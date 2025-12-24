@@ -1,0 +1,30 @@
+\documentclass[11pt% fontsize
+,a4paper% papersize
+% ,ngerman% language
+% lighthipster% theme
+]{scrartcl}
+
+\usepackage{pdfpages}
+\usepackage[margin=0pt]{geometry}
+\usepackage{hyperref}
+\definecolor{modcolor}{rgb}{0.22,0,45,0,70}
+\definecolor{cvblue}{HTML}{0e5484}
+
+\hypersetup{
+    pdftitle={Bewerbung << user_name >> - << company >>},
+    pdfauthor={<< user_name >>}
+    hidelinks
+}
+\graphicspath{{./}}
+\begin{document}
+
+% 1. Anschreiben
+\includepdf[pages=-]{application_letter}
+
+% 2. Lebenslauf
+\includepdf[pages=-]{cv}
+
+% 3. Anlagen
+\includepdf[pages=-]{attachments}
+
+\end{document}

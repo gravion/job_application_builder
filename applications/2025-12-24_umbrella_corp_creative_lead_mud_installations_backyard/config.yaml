@@ -1,0 +1,144 @@
+---
+language: "en"
+company: "Umbrella Corp"
+company_department: "Recruiting"
+company_contact: ""
+company_street: "Unpenthouse street 1"
+company_zip: "2"
+company_city: "Botropp"
+anrede: "Dear"
+job_id: ""
+job_title: "Creative Lead Mud Installations Backyard"
+
+titlename: "Application"
+signiture: "pics/signature.png"
+profilepicture: "pics/profilepic.png"
+
+
+job_keywords:
+  - Infrastructure as Code
+  - Python
+  - Ansible
+  - Linux
+  - Docker
+
+hard_skills:
+  - icon: \faTerminal
+    skills: [Mud, Colors, Hugs and Kisses]
+
+
+attachments:
+  - lorem-ipsum.pdf
+
+en:
+  mydegree: "King of the Hill"
+  subtitle: "Applying for"
+  abschied: "Best Regards"
+  headings:
+    education: "Education"
+    experience: "Experience"
+    interests: "Extracurriculars"
+    languages: "Languages"
+    about_me: "About Me"
+    attachments: "Enclosures:"
+
+  attachmentnames:
+    - "Bachelor's Certificate"
+    - "Intership References"
+    - "Employment References"
+    - "Military Service Certificate"
+    - "Certificates"
+
+  interests:
+    - category: "Diaper Change"
+      desc: |
+        Solving problems with a hands-on mentality.
+
+
+  soft_skills:
+    - icon: \faComments
+      title: Communication Skills
+    #   desc:
+
+    - icon: \faChartLine
+      title: Analytical Competence
+    #   desc:
+
+    - icon: \faUsers
+      title: Teamwork
+    #   desc:
+
+    - icon: \faLightbulb
+      title: Innovation Readiness
+    #   desc:
+
+    - icon: \faSync
+      title: Adaptability
+    #   desc:
+
+    - icon: \faDumbbell
+      title: Eagerness to Learn
+    #   desc:
+
+    - icon: \faHeart
+      title: Integrity \& Fairness
+    #   desc:
+
+    # - icon: \faSmile
+    #   title: Customer Orientation
+    #   desc:
+
+    # - icon: \faHandshake
+    #   title: Conflict Resolution
+    #   desc:
+
+    # - icon: \faUserCheck
+    #   title: Self-Reflection
+    #   desc:
+
+    # - icon: \faBalanceScale
+    #   title: Negotiation Skills
+    #   desc:
+
+    # - icon: \faGavel
+    #   title: Facilitation Skills
+    #   desc:
+
+    # - icon: \faLeaf
+    #   title: Humility
+    #   desc:
+
+  about_me_text: |
+    "It is not the circumstances that define the system, but the attitude with which we encounter them." \\\\
+    Focusing on structure, automation, and solving complex problems – even when things get fast-paced.
+
+  # --- Career History ---
+  history:
+    - section: "education"
+      entries:
+        - title: "Hard Knock Life"
+          org: "Elementary School"
+          time: "Oct 1817 --\\\\\\hspace{.5cm} Jun 1818"
+          desc: "Alphabet and Playdough mastery."
+
+    - section: "experience"
+      entries:
+        - title: "Lemonade Stand"
+          org: "Family Business"
+          time: "Sep 16 --\\\\\\hspace{.5cm} Oct 16"
+          desc: "Ripping off the neighborhood."
+
+  languages:
+    - name: Wale-ish
+      proficiency: 2
+      icon: GB.png
+
+myname: "Al Capone"
+myshortname: "Al"
+mystreet: "Sesame Street"
+myhousenumber: "7,75"
+myzipcode: "1"
+mycity: "Gotham"
+mycountry: "Northpole"
+myphone: "0190 666666"
+myemail: "beerandliqour@barnextdoor.np"

@@ -1,0 +1,92 @@
+\documentclass[11pt% fontsize
+,a4paper% papersize
+% lighthipster% theme
+,backaddress=false
+]{scrlttr2}
+
+\usepackage[sfdefault]{ClearSans}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{graphics}
+\usepackage[margin=2cm]{geometry}
+\usepackage[<< doc_lang >>]{babel}
+\usepackage{fontawesome5}
+\usepackage{academicons}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{modcolor}{rgb}{0.22,0,45,0,70}
+\definecolor{cvblue}{HTML}{0e5484}
+\setkomavar{fromname}{<< myname >>}
+\setkomavar{fromaddress}{<< mystreet >>\\<< myzipcode >> << mycity >>}
+\setkomavar{frommobilephone}{<< myphone >>}
+\setkomavar{fromemail}{<< myemail >>}
+\setkomavar{place}{<< mycity >>}
+\setkomavar{date}{<% if lang == 'de' %> den~<% endif %>\today}
+
+
+
+% --- configuration ---
+
+\setplength{sigindent}{0cm}
+
+\setkomavar{signature}{
+    \hspace*{2cm}\includegraphics[width=5cm]{<< signiture >>} \\
+    \hspace*{2cm}\usekomavar{fromname}
+}
+
+\setplength{sigbeforevskip}{-1em}
+
+
+
+\setkomavar{firsthead}{
+    \hfill
+    \begin{tabular}{@{}l@{}}
+     \textbf{\large\color{cvblue} << myshortname | trim >>} \\[0.8ex]
+     \begin{tabular}{@{} l @{\hspace{1.5ex}}l @{}}
+        \color{gray}\faMapMarker     & \color{gray}\footnotesize << mystreet | trim >> \\
+                                     & \color{gray}\footnotesize << myzipcode | trim >>~<< mycity | trim >> \\[1ex]
+        \color{gray}\faPhone         & \color{gray}\footnotesize << myphone | trim >> \\
+        \color{gray}\faEnvelope      & \color{gray}\footnotesize << myemail |trim >>
+        <% if mygit %>\\\color{gray}\faGithub & \color{gray}\footnotesize << mygit | trim >> <% endif %>
+        <% if mylab %>\\\color{gray}\faCloud  & \color{gray}\footnotesize << mylab | trim >> <% endif %>
+    \end{tabular}\\[0.5ex]
+    \color{cvblue}\rule{5.5cm}{0.4pt}
+\end{tabular}
+}
+
+
+\addtoplength{firstfootvpos}{5\baselineskip}
+ \firstfoot{%
+     \footnotesize%
+     \color{gray}%
+     \textbf{<< headings.attachments >>~}%
+     <% for item in attachmentnames %>
+        <<- item | regex_replace(".pdf", "") | replace("_", " ") ->>
+        <% if not loop.last %>, <% endif %>
+     <% endfor %>
+}
+\setkomavar{subject}{\large\color{cvblue}%
+    <% if job_id %>[<<- job_id ->>]~<% endif %>
+    <<- subtitle ->>~<<- job_title ->>%
+}
+
+\begin{document}
+\enlargethispage{2cm}
+\begin{letter}{<<- company ->>\\
+    <% if company_department %><< company_department>>\\<% endif %>
+    <<- company_street ->>\\
+    <<- company_zip ->>~<<- company_city ->>
+}%
+    \opening{<<- anrede ->>~%
+        <%if company_contact %>
+            <<- company_contact ->>
+        <% else %>
+            <<- company_department ->>
+        <% endif %>
+    }
+    << content >>
+    \closing{<< abschied >>\vspace{10pt}}
+\end{letter}
+
+\end{document}

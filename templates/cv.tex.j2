@@ -1,0 +1,106 @@
+\documentclass[a4paper]{fortysecondscv}
+
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage[<< doc_lang >>]{babel}
+\usepackage{smartdiagram}
+\usepackage{csquotes}
+\graphicspath{{pics/}{./}}
+\smartdiagramset{%
+    bubble center node font = \footnotesize,
+    bubble node font = \footnotesize,
+    bubble center node size = 0.4\sidebartextwidth,
+    bubble node size = 0.25\sidebartextwidth,
+    distance center/other bubbles = 1.5em,
+    bubble center node color = maincolor!70,
+    set color list = {maincolor!10, maincolor!40, maincolor!20, maincolor!60,
+    maincolor!35},
+    bubble fill opacity = 0.8,
+}
+\usepackage{hyperref}
+\hypersetup{%
+    urlcolor=cyan,
+}
+
+\cvname{<< myname >>}
+\cvjobtitle{<< mydegree >>}
+\cvprofilepic{<< profilepicture >>}
+\cvaddress{<< mystreet >>, << myzipcode >> << mycity >>}
+\cvphone{<< myphone >>}
+\cvsite{<< mysite >>}
+\cvmail{<< myemail >>}
+\cvbirthday{<< mybirthday >>}
+\cvcustomdata{\faFlag}{<< language >>}
+
+\renewcommand{\nameandjob}{%
+{\Huge\color{cvsectioncolor}\cvname}\par%
+\setlength{\parskip}{2ex}%
+{\Large\color{cvsectioncolor}\cvjobtitle}\par%
+\setlength{\parskip}{2ex}%
+{\color{cvsectioncolor}\faPhone << myphone >> \hfill\faEnvelope << mystreet >> << myhousenumber >>,
+    << myzipcode >> << mycity >>\hfill\faAt << myemail >> \par%
+    \setlength{\parskip}{1ex}
+}
+}
+
+% -------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{%
+    \profilesection{<< headings.about_me >>}
+    \aboutme{<< about_me_text >>}
+    \profilesection{Hard Skills}
+        <% for item in hard_skills %>
+            \skill{<< item.icon >>}{ << item.skills | join(', ') >>}
+        <% endfor %>
+    \profilesection{Soft Skills}
+        <% for item in soft_skills %>
+            \skill[0em]{<< item.icon >>}{ << item.title >>}
+        <% endfor %>
+
+    \profilesection{<< headings.languages >>}
+        <% for item in languages %>
+            \pointskill{\flag{<< item.icon >>}}{<< item.name >>}{<< item.proficiency >>}
+        <% endfor %>
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar%
+
+\nameandjob%
+
+\cvsection{<< headings.education >>}
+ \begin{cvtable}
+    <% for entry in history if entry.section == "education" %>
+        <% for item in entry.entries %>
+            \cvitem{<< item.time >>}{<< item.title >>}{<< item.org >>}{<< item.desc >>}
+     <% endfor %>
+ <% endfor %>
+ \end{cvtable}
+
+\cvsection{<< headings.experience >>}
+\begin{cvtable}
+    <% for entry in history if entry.section == "experience" %>
+        <% for item in entry.entries %>
+        \cvitem{<< item.time >>}{<< item.title >>}{<< item.org >>}{<< item.desc >>}
+    <% endfor %>
+<% endfor %>
+\end{cvtable}
+
+\cvsection{<< headings.interests >>}
+\begin{cvtable}
+    <% for entry in interests %>
+    \cvitemshort{<< entry.category >>}{<< entry.desc >>}
+<% endfor %>
+\end{cvtable}
+
+\end{document}

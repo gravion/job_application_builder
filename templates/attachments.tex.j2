@@ -1,0 +1,15 @@
+\documentclass[11pt% fontsize
+,a4paper% papersize
+% lighthipster% theme
+]{scrartcl}
+
+\usepackage{pdfpages}
+\usepackage[margin=0pt]{geometry}
+
+\begin{document}
+
+<% for file in attachments %>
+    \includepdf[pages=-, fitpaper]{../attachments/<< file >>}
+<% endfor %>
+
+\end{document}
